@@ -1,0 +1,32 @@
+{% if include.name %}
+  {% assign name = include.name %}
+{% else %}
+  {% assign name = "Contact" %}
+{% endif %}
+
+{% assign name_id = name | downcase | replace: " ", "-" %}
+
+{% if include.thanks_url %}
+  {% assign thanks_url = include.thanks_url %}
+{% else %}
+  {% assign thanks_url = "/thanks/" %}
+{% endif %}
+
+<form
+  action="https://formspree.io/f/xrgovgkd"
+  method="POST"
+>
+  <label>
+    Your email:
+    <input type="text" name="_replyto">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+
+  <!-- your other form fields go here -->
+
+  <button type="submit">Send</button>
+</form>
+  <noscript>Please enable JavaScript to use the form.</noscript>
